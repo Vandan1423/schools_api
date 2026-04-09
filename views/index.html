@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>School API</title>
+        <style>
+            body {
+                font-family: monospace;
+                background: #1e1e1e;
+                color: #d4d4d4;
+                padding: 30px;
+            }
+            h1 {
+                color: #569cd6;
+            }
+            h2 {
+                color: #4ec9b0;
+            }
+            .endpoint {
+                background: #2d2d2d;
+                border-radius: 8px;
+                padding: 20px;
+                margin: 20px 0;
+            }
+            .method-post {
+                color: #f97583;
+                font-weight: bold;
+            }
+            .method-get {
+                color: #79b8ff;
+                font-weight: bold;
+            }
+            pre {
+                background: #111;
+                padding: 15px;
+                border-radius: 6px;
+                overflow-x: auto;
+            }
+            .label {
+                color: #c586c0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>🏫 School Management API</h1>
+        <p>Welcome! Here are all the available endpoints:</p>
+
+        <div class="endpoint">
+            <h2>1. Add School</h2>
+            <p><span class="method-post">POST</span> /addSchool</p>
+            <p class="label">Request Body (JSON):</p>
+            <pre>
+{
+  "name"      : "string  (required) — Name of the school",
+  "address"   : "string  (required) — Address of the school",
+  "latitude"  : "number  (required) — Latitude of the school",
+  "longitude" : "number  (required) — Longitude of the school"
+}</pre
+            >
+            <p class="label">Example Request:</p>
+            <pre>
+{
+  "name"      : "ABC School",
+  "address"   : "Indore, Madhya Pradesh",
+  "latitude"  : 22.7196,
+  "longitude" : 75.8577
+}</pre
+            >
+            <p class="label">Example Response:</p>
+            <pre>{ "message": "School added successfully" }</pre>
+        </div>
+
+        <div class="endpoint">
+            <h2>2. List Schools</h2>
+            <p><span class="method-get">GET</span> /listSchools</p>
+            <p class="label">Query Parameters:</p>
+            <pre>
+latitude  = number (required) — Your current latitude
+longitude = number (required) — Your current longitude</pre
+            >
+            <p class="label">Example Request:</p>
+            <pre>/listSchools?latitude=30.7196&longitude=45.8577</pre>
+            <p class="label">Example Response:</p>
+            <pre>
+[
+  {
+    "id"        : 1,
+    "name"      : "ABC School",
+    "address"   : "New York",
+    "latitude"  : 40.7128,
+    "longitude" : 74.0060,
+    "distance"  : 0.0
+  }
+]</pre
+            >
+        </div>
+    </body>
+</html>
